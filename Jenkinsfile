@@ -19,6 +19,12 @@ pipeline {
                 sh 'grep -qi "hello" resultat.txt'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker build -t tp-jenkins:latest .'
+            }
+        }
     }
 
     post {
